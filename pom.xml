@@ -19,7 +19,10 @@
     </properties>
 
     <modules>
+        <module>ab-engine-common</module>
         <module>ab-engine-dao</module>
+        <module>ab-engine-service</module>
+        <module>ab-engine-web</module>
     </modules>
 
     <dependencies>
@@ -36,6 +39,26 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ab-engine-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ab-engine-dao</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ab-engine-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>ab-engine-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!-- openapi3.0的注解 -->
             <dependency>
                 <groupId>org.springdoc</groupId>
@@ -102,6 +125,11 @@
                 <artifactId>micrometer-registry-prometheus</artifactId>
             </dependency>
 
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>3.4.4</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -110,15 +138,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 
 </project>
