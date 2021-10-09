@@ -18,9 +18,9 @@ version: "1.0"
 
 services:
 
-  rtomde-mysql:
+  ab-engine-mysql:
     image: bitnami/mysql:8.0
-    container_name: rtomde-mysql
+    container_name: ab-engine-mysql
     ports:
       - 3306:3306
     environment:
@@ -33,8 +33,8 @@ services:
       MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
       MARIADB_CHARACTER_SET: utf8mb4
     volumes:
-      - ab-engine-mysql:/bitnami/postgresql
-      - initdb:/docker-entrypoint-initdb.d
+      - ab-engine-mysql:/bitnami/mysql
+      - ab-engine-mysql-initdb:/docker-entrypoint-initdb.d
     restart: unless-stopped
     networks:
       - ab-engine
@@ -44,5 +44,5 @@ networks:
     driver: bridge
 
 volumes:
-  rtomde-mysql:
-  rtomde-mysql-initdb:
+  ab-engine-mysql:
+  ab-engine-mysql-initdb:
